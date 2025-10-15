@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Login page</title>
+    <style>
+        #uerror, #perror {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-color: lightgray;">
+    <h1>Login Page</h1>
+    <fieldset style="background-color: white;">
+        <legend style="background-color: rgb(255, 128, 0); color: black;">Login Page</legend>
+
+        <form>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="uname"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p id="uerror">User name required</p></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="upass"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p id="perror">Password required</p></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="SUBMIT" onclick="myfunc()"></td>
+                    <td><input type="reset" value="RESET" onclick="clearErrors()"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+
+    <script>
+        function myfunc() {
+            const uname = document.getElementById("uname").value.trim();
+            const upass = document.getElementById("upass").value.trim();
+
+            let valid = true;
+
+            if (uname === "") {
+                document.getElementById("uerror").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("uerror").style.display = "none";
+            }
+
+            if (upass === "") {
+                document.getElementById("perror").style.display = "block";
+                valid = false;
+            } else {
+                document.getElementById("perror").style.display = "none";
+            }
+
+            if (valid) {
+                alert("Form submitted successfully!");
+            }
+        }
+
+        function clearErrors() {
+            document.getElementById("uerror").style.display = "none";
+            document.getElementById("perror").style.display = "none";
+        }
+    </script>
+</body>
+</html>
